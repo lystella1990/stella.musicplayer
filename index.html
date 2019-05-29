@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/wave.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/wave.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/progressbar.js"></script>
+    <script src="js/lyric.js"></script>
+    <script src="js/myJs.js"></script>
+
+
+</head>
+<body>
+<div class="header">
+    <span class="logo"><a href="javascript:;">My Music</a></span>
+    <span><a href="javascript:;">Login</a></span><span><a href="javascript:;">Setting</a></span>
+</div>
+<div class="middle">
+    <div class="middle-in">
+        <div class="left">
+            <div class="function">
+                <span>Favorite</span><span>Add to</span><span>Delete</span><span>Clear Playlist</span><span>Save</span>
+            </div>
+            <div id="playlist" class="playlist">
+                <ul>
+                    <li class="playitems_header">
+                        <div class="list_check_header">
+                            <i></i>
+                        </div>
+                        <div class="list_num_header"></div>
+                        <div class="list_song_name_header">Song</div>
+                        <div class="list_singer_header">Singer</div>
+                        <div class="list_time_header">Time</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="cd-box"><img src="images/normal_day_inner.png" alt=""></div>
+            <div class="songInfo">
+                <p class="songName"><span>歌曲名：</span>平凡的一天</p>
+                <p class="singerName"><span>歌手：</span>毛不易</p>
+                <p class="albumName"><span>专辑名：</span>平凡的一天</p>
+            </div>
+            <div class="lyric-container">
+                <div class="lyric">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bottom">
+    <div class="bottom-in">
+        <div class="play-control">
+            <a href="javascript:;"><i class="fas fa-backward"></i></a>
+            <a href="javascript:;"><i class="fas fa-play"></i></a>
+            <a href="javascript:;"><i class="fas fa-forward"></i></a>
+        </div>
+        <div class="progress-bar">
+            <div class="song-info">
+                <span class="bar-songname">平凡的一天</span>&nbsp;-&nbsp;
+                <span class="bar-singer">毛不易</span>
+                <span class="time-total">04:32</span>
+                <span class="time-played">00:00&nbsp;/</span>
+            </div>
+
+            <div class="bar">
+                <div class="bar-container">
+                    <div class="bar-progress"></div>
+                </div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        <div class="miscellaneous">
+            <a href="javascript:;"><i class="fas fa-random" title="noch nicht fertig"></i></a>
+            <a href="javascript:;"><i class="fas fa-heart" title="noch nicht fertig"></i></a>
+            <a href="javascript:;"><i class="fas fa-download" title="noch nicht fertig"></i></a>
+            <a href="javascript:;"><i class="fas fa-comment" title="noch nicht fertig"></i></a>
+            <a href="javascript:;"><i class="fas fa-toggle-on" title="noch nicht fertig"></i></a>
+        </div>
+        <div class="volume">
+            <i class="volume-icon fas fa-volume-up"></i>
+            <div class="volume-bar">
+                <div class="volume-progress"></div>
+                <div class="volume-dot"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="mask-cover"></div>
+<div class="mask"></div>
+<div class="self-intro">
+    <span class="close-button">X</span>
+    <div class="content">
+        <p>宝贝早上好!</p>
+        <p>用了两周的时间终于构造完善了这个音乐播放器</p>
+        <p>是宝贝送我的专辑</p>
+        <p>只有自己一个人 未免会有很多疏漏和Bug 后期我会继续优化修复</p>
+        <p>当打完最后一个功能代码的时候 按了下刷新按钮</p>
+        <p>整个页面预想中的浮现了出来 锁定的功能也都如期工作</p>
+        <p>我真的是挤出了一个月以来第一个笑容</p>
+        <P>我自学编程为的就是这一瞬间</P>
+        <p>我在我的动机信里也说到过 学习编程是为了圆一个梦</p>
+        <p>圆一个可以用自己双手创造出不曾存在过的东西的梦</p>
+        <p>我想 今天我可以说 我做到了</p>
+        <p>所以想跑来和你分享 尽管最近宝贝很忙 也想任性打扰你一次</p>
+        <p>也有点小私心 因为宝宝对于美学 对于设计的美感比我更有研究</p>
+        <p>所以也像能收获来自亲爱的的一些设计上的建议</p>
+        <p>总之 先谢谢宝贝了</p>
+        <br>
+        <br>
+        <br>
+        <p>最后...</p>
+        <p>我好想你 </p>
+        <p class="love">我爱你</p>
+    </div>
+</div>
+<audio src=""></audio>
+<script>
+    (function($){
+        $(window).on("load",function(){
+            $(".content").mCustomScrollbar({
+                theme:"minimal"
+            });
+        });
+    })(jQuery);
+
+</script>
+</body>
+</html>
